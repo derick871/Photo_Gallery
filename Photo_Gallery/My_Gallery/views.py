@@ -10,3 +10,7 @@ def register(request):
 
 def login(request):
     return render(request, 'login.html')
+
+def edit_profile(request):
+    return render(request, 'edit_profile.html')
+
