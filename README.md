@@ -11,7 +11,7 @@ The production environment for this web application is running live at:
 ---
 
 ##  Tech Stack & Dependencies
-  **Backend Engineering:** Python 3.x, Django 6.x
+* **Backend Engineering:** Python 3.x, Django 6.x
 *   **Database Infrastructure:** PostgreSQL
 *   **Frontend Interface & Styling:** HTML5, CSS3, Bootstrap 5 / Tailwind CSS
 *   **Media Processing Engine:** Pillow (Python Imaging Library)
