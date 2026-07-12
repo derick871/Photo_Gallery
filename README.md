@@ -1,4 +1,4 @@
-# Photo Gallery Web Application
+# Photo_Gallery 
 
 A responsive, production-ready Django web platform designed to let users explore, interact with, and contribute to an expanding collection of high-quality photos, digital portraits, and visual artworks.
 
