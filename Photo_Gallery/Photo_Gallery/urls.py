@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', views.register, name='register'), # Handles /register/
     path('', views.register, name='home'),
+    path('edit_profile', views.edit_profile, name= "edit_profile"),
     path('', include('My_Gallery.urls')),
 ]
