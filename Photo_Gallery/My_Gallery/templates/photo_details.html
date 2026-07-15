@@ -3,8 +3,9 @@
 <main class="max-w-4xl mx-auto px-4 py-10">
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         
+        <!-- Showcase Image using direct URL -->
         <div class="bg-gray-50 flex items-center justify-center p-4 sm:p-8 border-b border-gray-100">
-            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="max-h-[500px] w-auto object-contain rounded-xl shadow-md">
+            <img src="{{ photo.image_url }}" alt="{{ photo.title }}" class="max-h-[500px] w-auto object-contain rounded-xl shadow-md">
         </div>
 
         <div class="p-6 sm:p-10">
@@ -26,41 +27,15 @@
                     <form action="{% url 'dislike_photo' photo.id %}" method="POST">
                         {% csrf_token %}
                         <button type="submit" class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 text-sm font-semibold border border-red-100 transition">
-                             <span>{{ photo.total_dislikes }}</span>
+                            <span>{{ photo.total_dislikes }}</span>
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- Description -->
             <div class="prose max-w-none text-gray-600 mb-8">
                 <p class="leading-relaxed">{{ photo.description|default:"No description provided for this artwork." }}</p>
             </div>
-
-            <!-- Tags -->
-            <div class="border-t border-gray-100 pt-6">
-                <h5 class="text-sm font-semibold text-gray-900 mb-3">Tags</h5>
-                <div class="flex flex-wrap gap-2">
-                    {% for tag in photo.tags.all %}
-                        <a href="{% url 'gallery_home' %}?tag={{ tag.name }}" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 text-xs px-3 py-1.5 rounded-full font-semibold border border-indigo-100 transition-colors">
-                            #{{ tag.name }}
-                        </a>
-                    {% empty %}
-                        <span class="text-sm text-gray-400 italic">No tags associated with this asset.</span>
-                    {% endfor %}
-                </div>
-            </div>
-
-            {% if request.user == photo.uploaded_by %}
-                <div class="flex items-center justify-end gap-3 mt-10 pt-6 border-t border-gray-100">
-                    <a href="{% url 'edit_photo' photo.id %}" class="px-5 py-2.5 border border-gray-300 text-sm font-semibold rounded-xl text-gray-700 bg-white hover:bg-gray-50 transition shadow-sm">
-                        Edit Details
-                    </a>
-                    <a href="{% url 'delete_photo' photo.id %}" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-sm font-semibold rounded-xl text-white transition shadow-sm">
-                        Delete Asset
-                    </a>
-                </div>
-            {% endif %}
         </div>
     </div>
 </main>
