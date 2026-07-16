@@ -98,7 +98,7 @@ def upload_photo(request):
     return render(request, 'upload_photo.html')
 
 
-def photo_detail(request, photo_id):
+def photo_details(request, photo_id):
     """Displays a single photo with its details."""
     if Photo:
         photo = get_object_or_404(Photo, id=photo_id)
